@@ -1,0 +1,1 @@
+@powershell -NoProfile -NoLogo %~dp0yard.ps1 %*
