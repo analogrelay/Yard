@@ -9,8 +9,9 @@ $depots = & "$PSScriptRoot\..\Load-Depots.ps1" $yardRoot
 $depots.depots.depot | ForEach-Object {
     $path = $_.path;
     if(!$path) {
-        $path = Join-Path $yardRoot $_.name
+        $path = $_.name
     }
+    $path = Join-Path $yardRoot $path
 
     # Locate the remote
     $url = $null;

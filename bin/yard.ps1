@@ -1,3 +1,4 @@
+param([switch]$Cmd)
 Import-Module "$PSScriptRoot\..\Yard.psd1"
-yard @args
+yard -Cmd:$Cmd @args
 Remove-Module Yard

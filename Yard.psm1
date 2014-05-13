@@ -34,6 +34,7 @@ function Invoke-YardCommand {
         Command = $Command;
         CommandTable = $commands;
         YardInfo = $YardInfo;
+        IsCmd = $Cmd
     };
 
     # Find the command
