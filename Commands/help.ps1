@@ -12,7 +12,7 @@ if($Command) {
     Write-Host -ForegroundColor Yellow "Unknown command $Command"
 }
 
-Write-Host "NuGet Yard v$($YardContext.YardInfo.Version)"
+Write-Host "Git Yard v$($YardContext.YardInfo.Version)"
 Write-Host -ForegroundColor Magenta "yard <command> [arguments...]"
 Write-Host
 

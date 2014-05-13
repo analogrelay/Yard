@@ -1,1 +1,1 @@
-@powershell -NoProfile -NoLogo %~dp0yard.ps1 %*
+@powershell -ExecutionPolicy Unrestricted -NoProfile -NoLogo %~dp0yard.ps1 %*

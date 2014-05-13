@@ -14,7 +14,7 @@ $YardInfo = [PSCustomObject]@{
 }
 
 if(!(Get-Command git -ErrorAction SilentlyContinue)) {
-    throw "This module requires that the 'git' command be available!!"
+    Write-Warning "Yard depends on git but we couldn't find it on your PATH. Some commands may fail in weird ways!"
 }
 
 function exec {
