@@ -25,6 +25,7 @@ function exec {
 
 function Invoke-YardCommand {
     param($Command)
+    
     if(!$Command) {
         $Command = "help"
     }
