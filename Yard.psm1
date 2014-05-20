@@ -1,11 +1,6 @@
 # Integrate the git hook
 $env:PATH = "$($env:PATH);$PSScriptRoot\bin"
 
-$commands = @{};
-dir "$PSScriptRoot\Commands\*.ps1" | ForEach-Object {
-    $commands[[System.IO.Path]::GetFileNameWithoutExtension($_.Name)] = $_.FullName
-}
-
 $Manifest = Invoke-Expression ([String]::Join([Environment]::NewLine, (cat "$PSScriptRoot\Yard.psd1")))
 
 $YardInfo = [PSCustomObject]@{
@@ -31,6 +26,7 @@ function Invoke-YardCommand {
     }
 
     # Build a Yard Context
+    $commands = & "$PSScriptRoot\Get-Commands.ps1"
     $Context = [PSCustomObject]@{
         Command = $Command;
         CommandTable = $commands;
@@ -50,7 +46,7 @@ function Invoke-YardCommand {
     Write-Debug "Invoking Command: $cmd"
 
     $global:YardContext = $Context
-    & $cmd @args
+    & $cmd.File @args
     del variable:\YardContext
 }
 Set-Alias yard Invoke-YardCommand
